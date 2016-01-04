@@ -1,3 +1,4 @@
+import datetime
 
 YEAR_MAP = {10440: 2010, 10260: 2009, 10740: 2011, 11220: 2012, 11540: 2013, 12020: 2014}
 
@@ -30,3 +31,17 @@ def convert_ncaa_year_code(val):
         return year_to_code[val]
     else:
         return None
+
+def get_season_years(season):
+    """
+    Get the years spanned by a season
+    :param season: INT - The season summary year.
+    :return: INT, INT
+    """
+    assert type(season) == int, "season argument must be an integer"
+    return season - 1, season
+
+def get_season(dt):
+    """Assign a season to a given date."""
+    assert isinstance(dt, datetime.date)
+    return dt.year if dt.month <= 6 else dt.year + 1
