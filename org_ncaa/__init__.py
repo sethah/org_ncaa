@@ -1,7 +1,8 @@
 import datetime
 
-YEAR_MAP = {10440: 2010, 10260: 2009, 10740: 2011, 11220: 2012, 11540: 2013, 12020: 2014}
-
+YEAR_MAP = {10440: 2010, 10260: 2009, 10740: 2011,
+            11220: 2012, 11540: 2013, 12020: 2014,
+            12260: 2016}
 ALIASES = {'Cal St. Northridge': 'CSUN',
            'UNC Wilmington': 'UNCW',
            'SIU Edwardsville': 'SIUE'}

@@ -1,7 +1,9 @@
 import re
 import string
 
-YEAR_MAP = {10440: 2010, 10260: 2009, 10740: 2011, 11220: 2012, 11540: 2013, 12020: 2014}
+YEAR_MAP = {10440: 2010, 10260: 2009, 10740: 2011,
+            11220: 2012, 11540: 2013, 12020: 2014,
+            12260: 2016}
 BOX_LINK_BASE = 'http://stats.ncaa.org/game/box_score/'
 PBP_LINK_BASE = 'http://stats.ncaa.org/game/play_by_play/'
 BOX_COLUMNS = ['game_id', 'Team', 'team_id', 'first_name', 'last_name',
@@ -109,7 +111,7 @@ def stats_link_to_gameid(url):
 
 def parse_name(full_name):
     """Get first and last name from the name column of box stats table"""
-    full_name = str(full_name)
+    full_name = str(filter(lambda x: x in string.printable, full_name))
     parts = full_name.split(",")
     if len(parts) == 2:
         first_name, last_name = parts[1].strip(), parts[0].strip()
